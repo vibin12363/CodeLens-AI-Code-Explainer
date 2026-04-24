@@ -27,6 +27,8 @@
             --accent: #58a6ff;
             --accent2: #3fb950;
             --accent3: #f78166;
+            --purple: #bc8cff;
+            --yellow: #e3b341;
             --font-head: 'Syne', sans-serif;
             --font-code: 'JetBrains Mono', monospace
         }
@@ -76,13 +78,11 @@
         .wrapper {
             position: relative;
             z-index: 1;
-            max-width: 960px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 48px 24px 80px
         }
 
-
-        /* Header with logo and badge */
         header {
             display: flex;
             justify-content: space-between;
@@ -105,7 +105,6 @@
         }
 
         .logo-sub {
-            font-family: var(--font-code);
             font-size: 0.6rem;
             color: var(--muted);
             letter-spacing: 3px;
@@ -145,6 +144,7 @@
             }
         }
 
+        /* API BAR */
         .api-bar {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -218,6 +218,7 @@
             color: var(--accent3)
         }
 
+        /* ERROR */
         .error-msg {
             background: rgba(247, 129, 102, 0.08);
             border: 1px solid rgba(247, 129, 102, 0.25);
@@ -229,6 +230,7 @@
             display: none
         }
 
+        /* INPUT CARD */
         .input-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -276,6 +278,7 @@
             background: #28c840
         }
 
+        /* TOOLBAR */
         .toolbar {
             padding: 12px 20px;
             border-bottom: 1px solid var(--border);
@@ -289,7 +292,8 @@
             font-size: 0.6rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--muted)
+            color: var(--muted);
+            white-space: nowrap
         }
 
         select {
@@ -301,13 +305,15 @@
             font-size: 0.78rem;
             color: var(--text);
             outline: none;
-            cursor: pointer
+            cursor: pointer;
+            max-width: 200px
         }
 
         select:focus {
             border-color: var(--accent)
         }
 
+        /* MODE PILLS */
         .mode-row {
             padding: 10px 20px;
             border-bottom: 1px solid var(--border);
@@ -317,7 +323,7 @@
         }
 
         .mode-pill {
-            padding: 5px 12px;
+            padding: 6px 13px;
             border-radius: 20px;
             border: 1px solid var(--border);
             background: transparent;
@@ -325,7 +331,8 @@
             font-family: var(--font-code);
             font-size: 0.63rem;
             cursor: pointer;
-            transition: all 0.15s
+            transition: all 0.15s;
+            white-space: nowrap
         }
 
         .mode-pill:hover {
@@ -339,6 +346,19 @@
             color: var(--accent)
         }
 
+        .mode-pill.format-pill.active {
+            background: rgba(63, 185, 80, 0.12);
+            border-color: var(--accent2);
+            color: var(--accent2)
+        }
+
+        .mode-pill.minify-pill.active {
+            background: rgba(188, 140, 255, 0.12);
+            border-color: var(--purple);
+            color: var(--purple)
+        }
+
+        /* CODE TEXTAREA */
         .code-input {
             width: 100%;
             background: transparent;
@@ -358,6 +378,22 @@
             color: var(--muted)
         }
 
+        /* CHAR INFO */
+        .code-info {
+            padding: 8px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 16px;
+            background: var(--surface2)
+        }
+
+        .code-stat {
+            font-size: 0.6rem;
+            color: var(--muted);
+            letter-spacing: 1px
+        }
+
+        /* ACTION BTN */
         .explain-btn {
             width: 100%;
             padding: 15px;
@@ -398,6 +434,7 @@
             }
         }
 
+        /* OUTPUT */
         .output-panel {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -429,7 +466,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--surface2)
+            background: var(--surface2);
+            flex-wrap: wrap;
+            gap: 8px
         }
 
         .output-title {
@@ -439,7 +478,21 @@
             color: var(--accent)
         }
 
-        .copy-btn {
+        .output-title.green {
+            color: var(--accent2)
+        }
+
+        .output-title.purple {
+            color: var(--purple)
+        }
+
+        .output-actions {
+            display: flex;
+            gap: 8px
+        }
+
+        .copy-btn,
+        .dl-btn {
             background: transparent;
             border: 1px solid var(--border);
             color: var(--muted);
@@ -456,12 +509,24 @@
             color: var(--accent)
         }
 
+        .dl-btn:hover {
+            border-color: var(--accent2);
+            color: var(--accent2)
+        }
+
         .output-body {
             padding: 24px;
             font-size: 0.88rem;
             line-height: 1.85;
             white-space: pre-wrap;
             min-height: 80px
+        }
+
+        .output-body.code-mode {
+            font-family: var(--font-code);
+            font-size: 0.82rem;
+            background: var(--surface2);
+            border-radius: 0
         }
 
         .output-body.streaming::after {
@@ -482,6 +547,7 @@
             }
         }
 
+        /* STATS */
         .tag-row {
             padding: 10px 20px 16px;
             display: flex;
@@ -500,6 +566,18 @@
             border-radius: 20px
         }
 
+        .tag-chip.green {
+            background: rgba(63, 185, 80, 0.08);
+            border-color: rgba(63, 185, 80, 0.2);
+            color: var(--accent2)
+        }
+
+        .tag-chip.purple {
+            background: rgba(188, 140, 255, 0.08);
+            border-color: rgba(188, 140, 255, 0.2);
+            color: var(--purple)
+        }
+
         footer {
             text-align: center;
             margin-top: 48px;
@@ -512,9 +590,10 @@
             color: var(--accent)
         }
 
-        @media(max-width:600px) {
+        /* RESPONSIVE */
+        @media(max-width:768px) {
             .wrapper {
-                padding: 24px 14px 60px
+                padding: 32px 16px 60px
             }
 
             .logo {
@@ -527,12 +606,57 @@
             }
 
             .save-btn {
+                width: 100%;
+                text-align: center
+            }
+
+            .toolbar {
+                gap: 8px
+            }
+
+            select {
+                max-width: 100%;
                 width: 100%
             }
 
             .code-input {
-                min-height: 180px;
-                font-size: 0.8rem
+                min-height: 200px;
+                font-size: 0.82rem
+            }
+
+            .output-body {
+                padding: 16px;
+                font-size: 0.84rem
+            }
+        }
+
+        @media(max-width:480px) {
+            .wrapper {
+                padding: 20px 12px 48px
+            }
+
+            .logo {
+                font-size: 1.7rem
+            }
+
+            .mode-pill {
+                font-size: 0.6rem;
+                padding: 5px 10px
+            }
+
+            .code-input {
+                min-height: 160px;
+                font-size: 0.78rem
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .code-info {
+                flex-wrap: wrap;
+                gap: 8px
             }
         }
     </style>
@@ -545,16 +669,17 @@
         <header>
             <div>
                 <div class="logo">Code<span>Lens</span></div>
-                <div class="logo-sub">AI Code Explainer</div>
+                <div class="logo-sub">AI Code Explainer · Formatter · Minifier</div>
             </div>
             <div class="badge">Groq · LLaMA 3.3</div>
         </header>
 
         <div class="api-bar">
             <span class="api-label">API Key</span>
-            <input type="password" class="api-input" id="apiKey" placeholder="gsk_..." autocomplete="off" />
+            <input type="password" class="api-input" id="apiKey"
+                placeholder="gsk_... (same key as SummarAI & QuizForge)" autocomplete="off" />
             <button class="save-btn" onclick="saveKey()">Save Key</button>
-            <div class="key-status" id="keyStatus">Enter your free Groq API key (console.groq.com)</div>
+            <div class="key-status" id="keyStatus">Same Groq API key works for all your AI projects!</div>
         </div>
 
         <div class="error-msg" id="errorMsg"></div>
@@ -569,30 +694,73 @@
                 <span class="card-title">Paste Your Code</span>
                 <span></span>
             </div>
+
             <div class="toolbar">
                 <span class="tb-label">Language</span>
                 <select id="language">
-                    <option value="auto">Auto Detect</option>
-                    <option value="python">Python</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="java">Java</option>
-                    <option value="c">C</option>
-                    <option value="cpp">C++</option>
-                    <option value="html">HTML/CSS</option>
-                    <option value="sql">SQL</option>
-                    <option value="bash">Bash/Shell</option>
+                    <option value="auto">🔍 Auto Detect</option>
+                    <optgroup label="Web">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="jsx">JSX / React</option>
+                        <option value="typescript">TypeScript</option>
+                        <option value="tsx">TSX</option>
+                        <option value="json">JSON</option>
+                    </optgroup>
+                    <optgroup label="Backend">
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="c">C</option>
+                        <option value="cpp">C++</option>
+                        <option value="csharp">C#</option>
+                        <option value="php">PHP</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="swift">Swift</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="dart">Dart</option>
+                    </optgroup>
+                    <optgroup label="Data & DB">
+                        <option value="sql">SQL</option>
+                        <option value="r">R</option>
+                        <option value="matlab">MATLAB</option>
+                    </optgroup>
+                    <optgroup label="DevOps & Other">
+                        <option value="bash">Bash / Shell</option>
+                        <option value="powershell">PowerShell</option>
+                        <option value="yaml">YAML</option>
+                        <option value="dockerfile">Dockerfile</option>
+                        <option value="xml">XML</option>
+                        <option value="markdown">Markdown</option>
+                    </optgroup>
                 </select>
             </div>
+
             <div class="mode-row">
                 <button class="mode-pill active" data-mode="explain" onclick="selectMode(this)">🔍 Explain</button>
                 <button class="mode-pill" data-mode="simplify" onclick="selectMode(this)">🧒 ELI5</button>
                 <button class="mode-pill" data-mode="bugs" onclick="selectMode(this)">🐛 Find Bugs</button>
                 <button class="mode-pill" data-mode="optimize" onclick="selectMode(this)">⚡ Optimize</button>
                 <button class="mode-pill" data-mode="comments" onclick="selectMode(this)">📝 Add Comments</button>
+                <button class="mode-pill format-pill" data-mode="format" onclick="selectMode(this)">✨ Format
+                    Code</button>
+                <button class="mode-pill minify-pill" data-mode="minify" onclick="selectMode(this)">🗜️ Minify
+                    Code</button>
             </div>
+
             <textarea class="code-input" id="codeInput"
-                placeholder="// Paste any code here...&#10;&#10;// Example:&#10;function fibonacci(n) {&#10;  if (n &lt;= 1) return n;&#10;  return fibonacci(n-1) + fibonacci(n-2);&#10;}"></textarea>
-            <button class="explain-btn" id="explainBtn" onclick="explainCode()">
+                placeholder="// Paste any code here...&#10;&#10;Supports: HTML, CSS, JS, JSX, TS, Python, Java, C, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, YAML, and more!"
+                oninput="updateStats()"></textarea>
+
+            <div class="code-info">
+                <span class="code-stat" id="lineCount">0 lines</span>
+                <span class="code-stat" id="charCount">0 characters</span>
+                <span class="code-stat" id="sizeCount">0 bytes</span>
+            </div>
+
+            <button class="explain-btn" id="explainBtn" onclick="analyzeCode()">
                 <span id="btnText">🔍 ANALYZE CODE</span>
                 <div class="spinner" id="spinner"></div>
             </button>
@@ -601,88 +769,193 @@
         <div class="output-panel" id="outputPanel">
             <div class="output-header">
                 <span class="output-title" id="outputTitle">✦ Explanation</span>
-                <button class="copy-btn" onclick="copyOutput()">Copy</button>
+                <div class="output-actions">
+                    <button class="copy-btn" onclick="copyOutput()">📋 Copy</button>
+                    <button class="dl-btn" id="dlBtn" onclick="downloadOutput()" style="display:none">⬇
+                        Download</button>
+                </div>
             </div>
             <div class="output-body" id="outputBody"></div>
             <div class="tag-row" id="tagRow"></div>
         </div>
 
-        <footer>Built by <span>Vibin I</span> · Powered by Groq API · CodeLens</footer>
+        <footer>Built by <span>Vibin Iyyappan</span> · Powered by Groq API · CodeLens</footer>
     </div>
 
     <script>
         let apiKey = localStorage.getItem('codelens_key') || '';
         let selectedMode = 'explain';
-        if (apiKey) { document.getElementById('apiKey').value = apiKey; document.getElementById('keyStatus').textContent = '✓ Key loaded'; document.getElementById('keyStatus').className = 'key-status ok'; }
+        let currentLang = 'auto';
+
+        if (apiKey) {
+            document.getElementById('apiKey').value = apiKey;
+            document.getElementById('keyStatus').textContent = '✓ Key loaded — ready to analyze!';
+            document.getElementById('keyStatus').className = 'key-status ok';
+        }
 
         function saveKey() {
             const val = document.getElementById('apiKey').value.trim();
             if (!val.startsWith('gsk_')) { document.getElementById('keyStatus').textContent = '✗ Groq keys start with gsk_...'; document.getElementById('keyStatus').className = 'key-status err'; return; }
             apiKey = val; localStorage.setItem('codelens_key', val);
-            document.getElementById('keyStatus').textContent = '✓ Key saved!'; document.getElementById('keyStatus').className = 'key-status ok';
+            document.getElementById('keyStatus').textContent = '✓ Key saved! Works for SummarAI, QuizForge & CodeLens.';
+            document.getElementById('keyStatus').className = 'key-status ok';
+        }
+
+        function updateStats() {
+            const code = document.getElementById('codeInput').value;
+            const lines = code ? code.split('\n').length : 0;
+            const chars = code.length;
+            const bytes = new Blob([code]).size;
+            document.getElementById('lineCount').textContent = lines + ' lines';
+            document.getElementById('charCount').textContent = chars.toLocaleString() + ' chars';
+            document.getElementById('sizeCount').textContent = bytes < 1024 ? bytes + ' bytes' : (bytes / 1024).toFixed(1) + ' KB';
         }
 
         function selectMode(btn) {
             document.querySelectorAll('.mode-pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active'); selectedMode = btn.dataset.mode;
-            const labels = { explain: '🔍 ANALYZE CODE', simplify: '🧒 SIMPLIFY CODE', bugs: '🐛 FIND BUGS', optimize: '⚡ OPTIMIZE CODE', comments: '📝 ADD COMMENTS' };
+            btn.classList.add('active');
+            selectedMode = btn.dataset.mode;
+            const labels = {
+                explain: '🔍 ANALYZE CODE', simplify: '🧒 SIMPLIFY CODE',
+                bugs: '🐛 FIND BUGS', optimize: '⚡ OPTIMIZE CODE',
+                comments: '📝 ADD COMMENTS', format: '✨ FORMAT CODE', minify: '🗜️ MINIFY CODE'
+            };
             document.getElementById('btnText').textContent = labels[selectedMode];
         }
 
         function getPrompt(code, lang, mode) {
             const l = lang === 'auto' ? 'the detected programming language' : lang;
-            const p = {
-                explain: `Explain the following ${l} code clearly. Describe what it does overall, then explain each important part. Use clear simple language.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                simplify: `Explain the following ${l} code as if explaining to a complete beginner with no programming background. Use everyday analogies, avoid jargon, make it fun.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                bugs: `Review the following ${l} code for bugs, errors, and bad practices. List each issue and suggest a fix. If no bugs found, say so clearly.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                optimize: `Analyze the following ${l} code for performance and quality improvements. Suggest specific optimizations with explanations. Show improved code where helpful.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                comments: `Add clear, helpful inline comments to every important line or block in the following ${l} code. Return the full commented code.\n\nCode:\n\`\`\`\n${code}\n\`\`\``
+            const prompts = {
+                explain: `Explain the following ${l} code clearly and thoroughly. Describe what it does overall, then explain each important section. Use clear, simple language suitable for a learning developer.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
+                simplify: `Explain the following ${l} code as if talking to a complete beginner with zero programming knowledge. Use simple everyday analogies, avoid all jargon, and make it engaging.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
+                bugs: `Review the following ${l} code carefully for bugs, logic errors, security issues, and bad practices. List each issue clearly with line references where possible, and provide a suggested fix for each. If no issues found, say so.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
+                optimize: `Analyze the following ${l} code for performance, readability, and quality improvements. Provide specific suggestions with explanations and show improved code snippets where applicable.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
+                comments: `Add clear, helpful inline comments to every important line or block in the following ${l} code. Return ONLY the complete code with comments added. Do not add any explanation outside the code.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
+                format: `Format and prettify the following ${l} code with proper indentation, consistent spacing, and best-practice code style. Return ONLY the formatted code, nothing else — no explanation, no markdown fences.\n\nCode:\n${code}`,
+                minify: `Minify the following ${l} code to make it as small as possible while keeping the exact same output and functionality. Remove all unnecessary whitespace, comments, and shorten variable names where safe. Return ONLY the minified code, nothing else — no explanation, no markdown fences.\n\nCode:\n${code}`
             };
-            return p[mode];
+            return prompts[mode];
         }
 
-        async function explainCode() {
+        const modeIsCode = (m) => ['comments', 'format', 'minify'].includes(m);
+
+        async function analyzeCode() {
             const code = document.getElementById('codeInput').value.trim();
-            const lang = document.getElementById('language').value;
+            currentLang = document.getElementById('language').value;
             const errorEl = document.getElementById('errorMsg');
             errorEl.style.display = 'none';
+
             if (!apiKey) { errorEl.textContent = '⚠ Please enter and save your Groq API key.'; errorEl.style.display = 'block'; return; }
             if (!code) { errorEl.textContent = '⚠ Please paste some code to analyze.'; errorEl.style.display = 'block'; return; }
 
             const btn = document.getElementById('explainBtn');
-            btn.disabled = true; document.getElementById('btnText').style.display = 'none'; document.getElementById('spinner').style.display = 'block';
+            btn.disabled = true;
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('spinner').style.display = 'block';
+
             const outputPanel = document.getElementById('outputPanel');
             const outputBody = document.getElementById('outputBody');
-            outputPanel.classList.remove('show'); outputBody.textContent = ''; outputBody.classList.add('streaming');
+            outputPanel.classList.remove('show');
+            outputBody.textContent = '';
+            outputBody.className = 'output-body streaming';
 
-            const titles = { explain: '✦ Code Explanation', simplify: '✦ Simplified (ELI5)', bugs: '✦ Bug Report', optimize: '✦ Optimization Suggestions', comments: '✦ Commented Code' };
-            document.getElementById('outputTitle').textContent = titles[selectedMode];
+            const titles = {
+                explain: '✦ Code Explanation', simplify: '✦ Simplified (ELI5)',
+                bugs: '✦ Bug Report', optimize: '✦ Optimization Suggestions',
+                comments: '✦ Commented Code', format: '✦ Formatted Code', minify: '✦ Minified Code'
+            };
+            const titleEl = document.getElementById('outputTitle');
+            titleEl.textContent = titles[selectedMode];
+            titleEl.className = 'output-title' + (selectedMode === 'format' ? ' green' : selectedMode === 'minify' ? ' purple' : '');
 
             try {
                 const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({ model: 'llama-3.3-70b-versatile', messages: [{ role: 'user', content: getPrompt(code, lang, selectedMode) }], max_tokens: 1500, temperature: 0.3 })
+                    body: JSON.stringify({
+                        model: 'llama-3.3-70b-versatile',
+                        messages: [{ role: 'user', content: getPrompt(code, currentLang, selectedMode) }],
+                        max_tokens: 4000,
+                        temperature: selectedMode === 'minify' ? 0.1 : selectedMode === 'format' ? 0.1 : 0.3
+                    })
                 });
                 if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `API error ${res.status}`); }
                 const data = await res.json();
-                const result = data.choices[0].message.content;
-                outputBody.classList.remove('streaming'); outputBody.textContent = result;
-                const words = result.trim().split(/\s+/).length;
-                document.getElementById('tagRow').innerHTML = `<div class="tag-chip">Mode: ${selectedMode}</div><div class="tag-chip">Lang: ${lang}</div><div class="tag-chip">${words} words</div>`;
-                outputPanel.classList.add('show'); outputPanel.scrollIntoView({ behavior: 'smooth' });
+                let result = data.choices[0].message.content;
+
+                // For format/minify, strip any markdown fences the model might add
+                if (selectedMode === 'format' || selectedMode === 'minify') {
+                    result = result.replace(/^```[\w]*\n?/gm, '').replace(/^```$/gm, '').trim();
+                }
+
+                outputBody.classList.remove('streaming');
+                if (modeIsCode(selectedMode)) {
+                    outputBody.className = 'output-body code-mode';
+                } else {
+                    outputBody.className = 'output-body';
+                }
+                outputBody.textContent = result;
+
+                // Stats chips
+                const inLines = code.split('\n').length;
+                const outLines = result.split('\n').length;
+                const inSize = new Blob([code]).size;
+                const outSize = new Blob([result]).size;
+                const savings = inSize > 0 ? Math.round((1 - outSize / inSize) * 100) : 0;
+
+                let chips = `<div class="tag-chip">Mode: ${selectedMode}</div><div class="tag-chip">Lang: ${currentLang}</div>`;
+                if (selectedMode === 'minify') {
+                    chips += `<div class="tag-chip purple">Before: ${inSize} bytes</div><div class="tag-chip purple">After: ${outSize} bytes</div><div class="tag-chip purple">Saved: ${savings > 0 ? savings : 0}%</div>`;
+                } else if (selectedMode === 'format') {
+                    chips += `<div class="tag-chip green">Lines: ${inLines} → ${outLines}</div>`;
+                } else {
+                    const words = result.trim().split(/\s+/).length;
+                    chips += `<div class="tag-chip">${words} words</div><div class="tag-chip">${outLines} lines</div>`;
+                }
+                document.getElementById('tagRow').innerHTML = chips;
+
+                // Show download btn for format/minify/comments
+                const dlBtn = document.getElementById('dlBtn');
+                dlBtn.style.display = modeIsCode(selectedMode) ? 'inline-block' : 'none';
+
+                outputPanel.classList.add('show');
+                outputPanel.scrollIntoView({ behavior: 'smooth' });
+
             } catch (err) {
-                outputBody.classList.remove('streaming'); errorEl.textContent = '✗ Error: ' + err.message; errorEl.style.display = 'block';
+                outputBody.classList.remove('streaming');
+                errorEl.textContent = '✗ Error: ' + err.message;
+                errorEl.style.display = 'block';
             } finally {
-                btn.disabled = false; document.getElementById('btnText').style.display = 'block'; document.getElementById('spinner').style.display = 'none';
+                btn.disabled = false;
+                document.getElementById('btnText').style.display = 'block';
+                document.getElementById('spinner').style.display = 'none';
             }
         }
 
         function copyOutput() {
             navigator.clipboard.writeText(document.getElementById('outputBody').textContent).then(() => {
-                const btn = document.querySelector('.copy-btn'); btn.textContent = 'Copied!'; btn.style.color = 'var(--accent2)';
-                setTimeout(() => { btn.textContent = 'Copy'; btn.style.color = ''; }, 2000);
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✓ Copied!'; btn.style.color = 'var(--accent2)';
+                setTimeout(() => { btn.textContent = '📋 Copy'; btn.style.color = ''; }, 2000);
             });
+        }
+
+        function downloadOutput() {
+            const content = document.getElementById('outputBody').textContent;
+            const lang = document.getElementById('language').value;
+            const extMap = {
+                html: 'html', css: 'css', javascript: 'js', jsx: 'jsx', typescript: 'ts', tsx: 'tsx',
+                json: 'json', python: 'py', java: 'java', c: 'c', cpp: 'cpp', csharp: 'cs', php: 'php',
+                ruby: 'rb', go: 'go', rust: 'rs', swift: 'swift', kotlin: 'kt', dart: 'dart',
+                sql: 'sql', bash: 'sh', powershell: 'ps1', yaml: 'yaml', dockerfile: 'dockerfile',
+                xml: 'xml', markdown: 'md', r: 'r', matlab: 'm', auto: 'txt'
+            };
+            const ext = extMap[lang] || 'txt';
+            const suffix = selectedMode === 'minify' ? '.min' : selectedMode === 'format' ? '.formatted' : '.commented';
+            const filename = `code${suffix}.${ext}`;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob); a.download = filename; a.click();
         }
     </script>
 </body>
