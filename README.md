@@ -3,7 +3,7 @@
 An AI-powered code analysis tool that explains, formats, minifies, and debugs code using the **Groq API** (LLaMA 3.3 70B). Supports 25+ programming languages.
 
 ## 🚀 Live Demo
-[View Live App](https://yourusername.github.io/CodeLens-AI-Code-Explainer)
+[View Live App](https://codelens-ai-code-explainer.netlify.app/)
 
 ## ✨ Features
 - **7 Analysis Modes:**
@@ -31,7 +31,8 @@ An AI-powered code analysis tool that explains, formats, minifies, and debugs co
 5. Paste any code → select language & mode → Analyze!
 
 ## 📸 Screenshot
-<!-- Add a screenshot here -->
+<img width="720" height="818" alt="codelens" src="https://github.com/user-attachments/assets/6d321421-3b22-48bf-b091-4d0bf60eed73" />
+
 
 ## 👨‍💻 Author
 **Vibin Iyyappan**
