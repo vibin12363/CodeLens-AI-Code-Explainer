@@ -4,10 +4,59 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeLens — AI Code Explainer</title>
+
+    <!-- PRIMARY SEO -->
+    <title>CodeLens — Free AI Code Explainer, Formatter & Minifier Online | 25+ Languages</title>
+    <meta name="description"
+        content="CodeLens is a free AI-powered code explainer, formatter, and minifier. Paste any code and get instant explanations, bug detection, optimization tips, or minified output. Supports 25+ languages. No signup required." />
+    <meta name="keywords"
+        content="ai code explainer, code explainer online, free code explainer, code formatter online, code minifier, javascript minifier, python code explainer, explain code ai, code analyzer, bug finder, ai code review, code optimizer, free developer tool, code to explanation" />
+    <meta name="author" content="Vibin Iyyappan" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://codelens-ai-code-explainer.netlify.app/" />
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CodeLens — Free AI Code Explainer & Formatter Online" />
+    <meta property="og:description"
+        content="Explain, format, minify, debug, or optimize any code instantly with AI. Supports 25+ languages. Free, no login required." />
+    <meta property="og:url" content="https://codelens-ai-code-explainer.netlify.app/" />
+    <meta property="og:site_name" content="CodeLens" />
+    <meta property="og:image" content="https://codelens-ai-code-explainer.netlify.app/og-image.png" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CodeLens — Free AI Code Explainer Online" />
+    <meta name="twitter:description"
+        content="Explain, format, minify, or debug any code with AI. 25+ languages. Free, no login." />
+    <meta name="twitter:image" content="https://codelens-ai-code-explainer.netlify.app/og-image.png" />
+
+    <!-- SCHEMA.ORG -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CodeLens",
+    "description": "Free AI-powered code explainer, formatter, and minifier supporting 25+ programming languages with 7 analysis modes.",
+    "url": "https://codelens-ai-code-explainer.netlify.app/",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Vibin Iyyappan", "url": "https://github.com/vibin12363" },
+    "featureList": [
+      "Code explanation", "ELI5 simplification", "Bug detection",
+      "Code optimization", "Add comments", "Code formatting",
+      "Code minification", "25+ languages", "No signup required", "Free to use"
+    ]
+  }
+  </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap"
         rel="stylesheet" />
+
     <style>
         *,
         *::before,
@@ -38,7 +87,8 @@
             color: var(--text);
             font-family: var(--font-code);
             min-height: 100vh;
-            overflow-x: hidden
+            overflow-x: hidden;
+            line-height: 1.6
         }
 
         body::before {
@@ -83,11 +133,12 @@
             padding: 48px 24px 80px
         }
 
+        /* HEADER */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
             gap: 16px
         }
@@ -144,78 +195,50 @@
             }
         }
 
-        /* API BAR */
-        .api-bar {
+        /* HERO */
+        .hero {
+            text-align: center;
+            margin-bottom: 36px;
+            padding: 0 10px
+        }
+
+        .hero h1 {
+            font-family: var(--font-head);
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px
+        }
+
+        .hero h1 span {
+            color: var(--accent)
+        }
+
+        .hero p {
+            font-size: 0.92rem;
+            color: var(--muted);
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.7
+        }
+
+        .hero-pills {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px
+        }
+
+        .hero-pill {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 16px 20px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 24px
-        }
-
-        .api-label {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             color: var(--muted);
-            white-space: nowrap
-        }
-
-        .api-input {
-            flex: 1;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 9px 14px;
-            font-family: var(--font-code);
-            font-size: 0.82rem;
-            color: var(--text);
-            outline: none;
-            min-width: 160px;
-            transition: border-color 0.2s
-        }
-
-        .api-input:focus {
-            border-color: var(--accent)
-        }
-
-        .api-input::placeholder {
-            color: var(--muted)
-        }
-
-        .save-btn {
-            background: rgba(88, 166, 255, 0.1);
-            border: 1px solid rgba(88, 166, 255, 0.3);
-            color: var(--accent);
-            font-family: var(--font-code);
-            font-size: 0.75rem;
-            padding: 9px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap
-        }
-
-        .save-btn:hover {
-            background: rgba(88, 166, 255, 0.2)
-        }
-
-        .key-status {
             font-size: 0.65rem;
-            color: var(--muted);
-            width: 100%
-        }
-
-        .key-status.ok {
-            color: var(--accent2)
-        }
-
-        .key-status.err {
-            color: var(--accent3)
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 20px
         }
 
         /* ERROR */
@@ -306,7 +329,7 @@
             color: var(--text);
             outline: none;
             cursor: pointer;
-            max-width: 200px
+            max-width: 220px
         }
 
         select:focus {
@@ -358,7 +381,7 @@
             color: var(--purple)
         }
 
-        /* CODE TEXTAREA */
+        /* CODE INPUT */
         .code-input {
             width: 100%;
             background: transparent;
@@ -378,13 +401,14 @@
             color: var(--muted)
         }
 
-        /* CHAR INFO */
+        /* CODE STATS */
         .code-info {
             padding: 8px 20px;
             border-top: 1px solid var(--border);
             display: flex;
             gap: 16px;
-            background: var(--surface2)
+            background: var(--surface2);
+            flex-wrap: wrap
         }
 
         .code-stat {
@@ -525,8 +549,7 @@
         .output-body.code-mode {
             font-family: var(--font-code);
             font-size: 0.82rem;
-            background: var(--surface2);
-            border-radius: 0
+            background: var(--surface2)
         }
 
         .output-body.streaming::after {
@@ -547,7 +570,6 @@
             }
         }
 
-        /* STATS */
         .tag-row {
             padding: 10px 20px 16px;
             display: flex;
@@ -578,16 +600,141 @@
             color: var(--purple)
         }
 
-        footer {
-            text-align: center;
-            margin-top: 48px;
-            font-size: 0.62rem;
-            color: var(--muted);
-            letter-spacing: 1px
+        /* HOW IT WORKS */
+        .how-section {
+            margin-top: 64px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border)
         }
 
-        footer span {
+        .how-section h2 {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+            color: var(--text)
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px
+        }
+
+        .how-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            text-align: center
+        }
+
+        .how-icon {
+            font-size: 2rem;
+            margin-bottom: 12px
+        }
+
+        .how-title {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
             color: var(--accent)
+        }
+
+        .how-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 48px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border)
+        }
+
+        .faq-section h2 {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            color: var(--text)
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden
+        }
+
+        .faq-q {
+            width: 100%;
+            background: transparent;
+            border: none;
+            text-align: left;
+            padding: 16px 20px;
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px
+        }
+
+        .faq-q:hover {
+            color: var(--accent)
+        }
+
+        .faq-arrow {
+            font-size: 0.75rem;
+            color: var(--muted);
+            transition: transform 0.2s;
+            flex-shrink: 0
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg)
+        }
+
+        .faq-a {
+            display: none;
+            padding: 14px 20px 16px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            line-height: 1.7;
+            border-top: 1px solid var(--border)
+        }
+
+        .faq-item.open .faq-a {
+            display: block
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 64px;
+            font-size: 0.62rem;
+            color: var(--muted);
+            letter-spacing: 1px;
+            border-top: 1px solid var(--border);
+            padding-top: 24px
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none
+        }
+
+        footer a:hover {
+            text-decoration: underline
         }
 
         /* RESPONSIVE */
@@ -600,14 +747,12 @@
                 font-size: 2rem
             }
 
-            .api-input {
-                min-width: 0;
-                width: 100%
+            .hero h1 {
+                font-size: 1.5rem
             }
 
-            .save-btn {
-                width: 100%;
-                text-align: center
+            .hero p {
+                font-size: 0.88rem
             }
 
             .toolbar {
@@ -628,6 +773,26 @@
                 padding: 16px;
                 font-size: 0.84rem
             }
+
+            .how-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .card-header {
+                padding: 10px 16px
+            }
+
+            .mode-row {
+                padding: 8px 16px
+            }
+
+            .tag-row {
+                padding: 8px 16px 12px
+            }
+
+            .output-header {
+                padding: 10px 16px
+            }
         }
 
         @media(max-width:480px) {
@@ -637,6 +802,14 @@
 
             .logo {
                 font-size: 1.7rem
+            }
+
+            .hero h1 {
+                font-size: 1.25rem
+            }
+
+            .hero p {
+                font-size: 0.84rem
             }
 
             .mode-pill {
@@ -655,8 +828,53 @@
             }
 
             .code-info {
-                flex-wrap: wrap;
                 gap: 8px
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr
+            }
+
+            .output-actions {
+                flex-wrap: wrap
+            }
+
+            .badge {
+                font-size: 0.56rem;
+                padding: 5px 10px
+            }
+
+            .hero-pill {
+                font-size: 0.62rem
+            }
+
+            .output-body {
+                padding: 12px;
+                font-size: 0.8rem
+            }
+
+            .tag-chip {
+                font-size: 0.58rem;
+                padding: 3px 8px
+            }
+
+            .explain-btn {
+                font-size: 0.88rem;
+                padding: 13px
+            }
+
+            .faq-q {
+                font-size: 0.88rem;
+                padding: 13px 16px
+            }
+
+            .faq-a {
+                padding: 12px 16px 14px;
+                font-size: 0.8rem
+            }
+
+            footer {
+                font-size: 0.6rem
             }
         }
     </style>
@@ -666,140 +884,215 @@
     <div class="glow1"></div>
     <div class="glow2"></div>
     <div class="wrapper">
+
         <header>
             <div>
                 <div class="logo">Code<span>Lens</span></div>
                 <div class="logo-sub">AI Code Explainer · Formatter · Minifier</div>
             </div>
-            <div class="badge">Groq · LLaMA 3.3</div>
+            <div class="badge">AI Powered · Free</div>
         </header>
 
-        <div class="api-bar">
-            <span class="api-label">API Key</span>
-            <input type="password" class="api-input" id="apiKey"
-                placeholder="gsk_..." autocomplete="off" />
-            <button class="save-btn" onclick="saveKey()">Save Key</button>
-            <div class="key-status" id="keyStatus">Groq API key works for all your AI projects!</div>
-        </div>
+        <!-- HERO -->
+        <section class="hero" aria-label="Introduction">
+            <h1>Explain, Format & Minify Any Code <span>Instantly with AI</span></h1>
+            <p>Paste any code and get instant AI-powered explanations, bug detection, optimization tips, formatted
+                output, or minified code. Supports 25+ programming languages. Completely free — no login or API key
+                required.</p>
+            <div class="hero-pills">
+                <span class="hero-pill">✓ No Login Required</span>
+                <span class="hero-pill">✓ 100% Free</span>
+                <span class="hero-pill">✓ 7 Analysis Modes</span>
+                <span class="hero-pill">✓ 25+ Languages</span>
+                <span class="hero-pill">✓ Mobile Friendly</span>
+            </div>
+        </section>
 
-        <div class="error-msg" id="errorMsg"></div>
+        <div class="error-msg" id="errorMsg" role="alert"></div>
 
-        <div class="input-card">
-            <div class="card-header">
-                <div class="dots">
-                    <div class="dot dot-r"></div>
-                    <div class="dot dot-y"></div>
-                    <div class="dot dot-g"></div>
+        <!-- MAIN TOOL -->
+        <main aria-label="Code Analysis Tool">
+            <div class="input-card">
+                <div class="card-header">
+                    <div class="dots">
+                        <div class="dot dot-r"></div>
+                        <div class="dot dot-y"></div>
+                        <div class="dot dot-g"></div>
+                    </div>
+                    <span class="card-title">Paste Your Code</span>
+                    <span></span>
                 </div>
-                <span class="card-title">Paste Your Code</span>
-                <span></span>
+
+                <div class="toolbar">
+                    <span class="tb-label">Language</span>
+                    <select id="language" aria-label="Programming language">
+                        <option value="auto">🔍 Auto Detect</option>
+                        <optgroup label="Web">
+                            <option value="html">HTML</option>
+                            <option value="css">CSS</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="jsx">JSX / React</option>
+                            <option value="typescript">TypeScript</option>
+                            <option value="tsx">TSX</option>
+                            <option value="json">JSON</option>
+                        </optgroup>
+                        <optgroup label="Backend">
+                            <option value="python">Python</option>
+                            <option value="java">Java</option>
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="csharp">C#</option>
+                            <option value="php">PHP</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="go">Go</option>
+                            <option value="rust">Rust</option>
+                            <option value="swift">Swift</option>
+                            <option value="kotlin">Kotlin</option>
+                            <option value="dart">Dart</option>
+                        </optgroup>
+                        <optgroup label="Data & DB">
+                            <option value="sql">SQL</option>
+                            <option value="r">R</option>
+                            <option value="matlab">MATLAB</option>
+                        </optgroup>
+                        <optgroup label="DevOps & Other">
+                            <option value="bash">Bash / Shell</option>
+                            <option value="powershell">PowerShell</option>
+                            <option value="yaml">YAML</option>
+                            <option value="dockerfile">Dockerfile</option>
+                            <option value="xml">XML</option>
+                            <option value="markdown">Markdown</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="mode-row" role="group" aria-label="Analysis mode">
+                    <button class="mode-pill active" data-mode="explain" onclick="selectMode(this)">🔍 Explain</button>
+                    <button class="mode-pill" data-mode="simplify" onclick="selectMode(this)">🧒 ELI5</button>
+                    <button class="mode-pill" data-mode="bugs" onclick="selectMode(this)">🐛 Find Bugs</button>
+                    <button class="mode-pill" data-mode="optimize" onclick="selectMode(this)">⚡ Optimize</button>
+                    <button class="mode-pill" data-mode="comments" onclick="selectMode(this)">📝 Add Comments</button>
+                    <button class="mode-pill format-pill" data-mode="format" onclick="selectMode(this)">✨ Format
+                        Code</button>
+                    <button class="mode-pill minify-pill" data-mode="minify" onclick="selectMode(this)">🗜️ Minify
+                        Code</button>
+                </div>
+
+                <textarea class="code-input" id="codeInput"
+                    placeholder="// Paste any code here...&#10;&#10;Supports: HTML, CSS, JS, JSX, TS, Python, Java, C, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, YAML, and more!&#10;&#10;No API key needed — just paste and analyze!"
+                    oninput="updateStats()" aria-label="Code input"></textarea>
+
+                <div class="code-info">
+                    <span class="code-stat" id="lineCount">0 lines</span>
+                    <span class="code-stat" id="charCount">0 characters</span>
+                    <span class="code-stat" id="sizeCount">0 bytes</span>
+                </div>
+
+                <button class="explain-btn" id="explainBtn" onclick="analyzeCode()" aria-label="Analyze code">
+                    <span id="btnText">🔍 ANALYZE CODE — FREE</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
             </div>
 
-            <div class="toolbar">
-                <span class="tb-label">Language</span>
-                <select id="language">
-                    <option value="auto">🔍 Auto Detect</option>
-                    <optgroup label="Web">
-                        <option value="html">HTML</option>
-                        <option value="css">CSS</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="jsx">JSX / React</option>
-                        <option value="typescript">TypeScript</option>
-                        <option value="tsx">TSX</option>
-                        <option value="json">JSON</option>
-                    </optgroup>
-                    <optgroup label="Backend">
-                        <option value="python">Python</option>
-                        <option value="java">Java</option>
-                        <option value="c">C</option>
-                        <option value="cpp">C++</option>
-                        <option value="csharp">C#</option>
-                        <option value="php">PHP</option>
-                        <option value="ruby">Ruby</option>
-                        <option value="go">Go</option>
-                        <option value="rust">Rust</option>
-                        <option value="swift">Swift</option>
-                        <option value="kotlin">Kotlin</option>
-                        <option value="dart">Dart</option>
-                    </optgroup>
-                    <optgroup label="Data & DB">
-                        <option value="sql">SQL</option>
-                        <option value="r">R</option>
-                        <option value="matlab">MATLAB</option>
-                    </optgroup>
-                    <optgroup label="DevOps & Other">
-                        <option value="bash">Bash / Shell</option>
-                        <option value="powershell">PowerShell</option>
-                        <option value="yaml">YAML</option>
-                        <option value="dockerfile">Dockerfile</option>
-                        <option value="xml">XML</option>
-                        <option value="markdown">Markdown</option>
-                    </optgroup>
-                </select>
+            <!-- OUTPUT -->
+            <div class="output-panel" id="outputPanel" aria-live="polite">
+                <div class="output-header">
+                    <span class="output-title" id="outputTitle">✦ Explanation</span>
+                    <div class="output-actions">
+                        <button class="copy-btn" onclick="copyOutput()">📋 Copy</button>
+                        <button class="dl-btn" id="dlBtn" onclick="downloadOutput()" style="display:none">⬇
+                            Download</button>
+                    </div>
+                </div>
+                <div class="output-body" id="outputBody"></div>
+                <div class="tag-row" id="tagRow"></div>
             </div>
+        </main>
 
-            <div class="mode-row">
-                <button class="mode-pill active" data-mode="explain" onclick="selectMode(this)">🔍 Explain</button>
-                <button class="mode-pill" data-mode="simplify" onclick="selectMode(this)">🧒 ELI5</button>
-                <button class="mode-pill" data-mode="bugs" onclick="selectMode(this)">🐛 Find Bugs</button>
-                <button class="mode-pill" data-mode="optimize" onclick="selectMode(this)">⚡ Optimize</button>
-                <button class="mode-pill" data-mode="comments" onclick="selectMode(this)">📝 Add Comments</button>
-                <button class="mode-pill format-pill" data-mode="format" onclick="selectMode(this)">✨ Format
-                    Code</button>
-                <button class="mode-pill minify-pill" data-mode="minify" onclick="selectMode(this)">🗜️ Minify
-                    Code</button>
-            </div>
-
-            <textarea class="code-input" id="codeInput"
-                placeholder="// Paste any code here...&#10;&#10;Supports: HTML, CSS, JS, JSX, TS, Python, Java, C, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, YAML, and more!"
-                oninput="updateStats()"></textarea>
-
-            <div class="code-info">
-                <span class="code-stat" id="lineCount">0 lines</span>
-                <span class="code-stat" id="charCount">0 characters</span>
-                <span class="code-stat" id="sizeCount">0 bytes</span>
-            </div>
-
-            <button class="explain-btn" id="explainBtn" onclick="analyzeCode()">
-                <span id="btnText">🔍 ANALYZE CODE</span>
-                <div class="spinner" id="spinner"></div>
-            </button>
-        </div>
-
-        <div class="output-panel" id="outputPanel">
-            <div class="output-header">
-                <span class="output-title" id="outputTitle">✦ Explanation</span>
-                <div class="output-actions">
-                    <button class="copy-btn" onclick="copyOutput()">📋 Copy</button>
-                    <button class="dl-btn" id="dlBtn" onclick="downloadOutput()" style="display:none">⬇
-                        Download</button>
+        <!-- HOW IT WORKS -->
+        <section class="how-section" aria-label="How CodeLens works">
+            <h2>How CodeLens Works</h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon">💻</div>
+                    <div class="how-title">Paste Code</div>
+                    <div class="how-desc">Paste any code snippet in any of 25+ supported programming languages.</div>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon">🎯</div>
+                    <div class="how-title">Choose Mode</div>
+                    <div class="how-desc">Select from 7 modes: Explain, ELI5, Find Bugs, Optimize, Comments, Format, or
+                        Minify.</div>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon">🤖</div>
+                    <div class="how-title">AI Analyzes</div>
+                    <div class="how-desc">LLaMA 3.3 70B instantly processes your code and returns the result.</div>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon">📋</div>
+                    <div class="how-title">Copy or Download</div>
+                    <div class="how-desc">Copy the result or download formatted/minified/commented code as a file.</div>
                 </div>
             </div>
-            <div class="output-body" id="outputBody"></div>
-            <div class="tag-row" id="tagRow"></div>
-        </div>
+        </section>
 
-        <footer>Built by <span>Vibin I</span> · Powered by Groq API · CodeLens</footer>
+        <!-- FAQ -->
+        <section class="faq-section" aria-label="Frequently asked questions">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">Is CodeLens completely free?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes! CodeLens is 100% free. No signup, no login, no API key required from your side.
+                    Just paste your code and analyze it instantly.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">What programming languages are supported?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">CodeLens supports 25+ languages including HTML, CSS, JavaScript, JSX, TypeScript,
+                    TSX, Python, Java, C, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, PowerShell,
+                    YAML, Dockerfile, XML, Markdown, R, and MATLAB.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">What are the 7 analysis modes?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">🔍 Explain — clear line-by-line breakdown. 🧒 ELI5 — beginner-friendly explanation
+                    using simple language. 🐛 Find Bugs — detects errors and bad practices. ⚡ Optimize — performance
+                    improvement suggestions. 📝 Add Comments — returns fully commented code. ✨ Format Code — prettifies
+                    with proper indentation. 🗜️ Minify Code — compresses code and shows % size saved.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">Can I download the formatted or minified code?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes! For Format, Minify, and Add Comments modes, a Download button appears that saves
+                    the result as a file with the correct extension for your language (e.g., .min.js, .formatted.py).
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">How accurate is the AI code analysis?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">CodeLens uses LLaMA 3.3 70B via Groq — one of the most powerful and fastest AI models
+                    available. It produces accurate explanations and reliable code transformations for most common use
+                    cases.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">Is there a code size limit?<span
+                        class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes, the maximum code input is 20,000 characters per request. For larger codebases,
+                    paste individual functions or sections for best results.</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Built by Vibin I ·
+                Powered by Groq API (LLaMA 3.3) ·</p>
+            <p style="margin-top:8px;">© 2025 CodeLens · Free AI Code Explainer · No Login Required</p>
+        </footer>
     </div>
 
     <script>
-        let apiKey = localStorage.getItem('codelens_key') || '';
         let selectedMode = 'explain';
         let currentLang = 'auto';
-
-        if (apiKey) {
-            document.getElementById('apiKey').value = apiKey;
-            document.getElementById('keyStatus').textContent = '✓ Key loaded — ready to analyze!';
-            document.getElementById('keyStatus').className = 'key-status ok';
-        }
-
-        function saveKey() {
-            const val = document.getElementById('apiKey').value.trim();
-            if (!val.startsWith('gsk_')) { document.getElementById('keyStatus').textContent = '✗ Groq keys start with gsk_...'; document.getElementById('keyStatus').className = 'key-status err'; return; }
-            apiKey = val; localStorage.setItem('codelens_key', val);
-            document.getElementById('keyStatus').textContent = '✓ Key saved! Works for SummarAI, QuizForge & CodeLens.';
-            document.getElementById('keyStatus').className = 'key-status ok';
-        }
 
         function updateStats() {
             const code = document.getElementById('codeInput').value;
@@ -816,25 +1109,12 @@
             btn.classList.add('active');
             selectedMode = btn.dataset.mode;
             const labels = {
-                explain: '🔍 ANALYZE CODE', simplify: '🧒 SIMPLIFY CODE',
-                bugs: '🐛 FIND BUGS', optimize: '⚡ OPTIMIZE CODE',
-                comments: '📝 ADD COMMENTS', format: '✨ FORMAT CODE', minify: '🗜️ MINIFY CODE'
+                explain: '🔍 ANALYZE CODE — FREE', simplify: '🧒 SIMPLIFY CODE — FREE',
+                bugs: '🐛 FIND BUGS — FREE', optimize: '⚡ OPTIMIZE CODE — FREE',
+                comments: '📝 ADD COMMENTS — FREE', format: '✨ FORMAT CODE — FREE',
+                minify: '🗜️ MINIFY CODE — FREE'
             };
             document.getElementById('btnText').textContent = labels[selectedMode];
-        }
-
-        function getPrompt(code, lang, mode) {
-            const l = lang === 'auto' ? 'the detected programming language' : lang;
-            const prompts = {
-                explain: `Explain the following ${l} code clearly and thoroughly. Describe what it does overall, then explain each important section. Use clear, simple language suitable for a learning developer.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                simplify: `Explain the following ${l} code as if talking to a complete beginner with zero programming knowledge. Use simple everyday analogies, avoid all jargon, and make it engaging.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                bugs: `Review the following ${l} code carefully for bugs, logic errors, security issues, and bad practices. List each issue clearly with line references where possible, and provide a suggested fix for each. If no issues found, say so.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                optimize: `Analyze the following ${l} code for performance, readability, and quality improvements. Provide specific suggestions with explanations and show improved code snippets where applicable.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                comments: `Add clear, helpful inline comments to every important line or block in the following ${l} code. Return ONLY the complete code with comments added. Do not add any explanation outside the code.\n\nCode:\n\`\`\`\n${code}\n\`\`\``,
-                format: `Format and prettify the following ${l} code with proper indentation, consistent spacing, and best-practice code style. Return ONLY the formatted code, nothing else — no explanation, no markdown fences.\n\nCode:\n${code}`,
-                minify: `Minify the following ${l} code to make it as small as possible while keeping the exact same output and functionality. Remove all unnecessary whitespace, comments, and shorten variable names where safe. Return ONLY the minified code, nothing else — no explanation, no markdown fences.\n\nCode:\n${code}`
-            };
-            return prompts[mode];
         }
 
         const modeIsCode = (m) => ['comments', 'format', 'minify'].includes(m);
@@ -845,8 +1125,8 @@
             const errorEl = document.getElementById('errorMsg');
             errorEl.style.display = 'none';
 
-            if (!apiKey) { errorEl.textContent = '⚠ Please enter and save your Groq API key.'; errorEl.style.display = 'block'; return; }
             if (!code) { errorEl.textContent = '⚠ Please paste some code to analyze.'; errorEl.style.display = 'block'; return; }
+            if (code.length > 20000) { errorEl.textContent = '⚠ Code is too long (max 20,000 characters). Please paste a smaller snippet.'; errorEl.style.display = 'block'; return; }
 
             const btn = document.getElementById('explainBtn');
             btn.disabled = true;
@@ -858,6 +1138,7 @@
             outputPanel.classList.remove('show');
             outputBody.textContent = '';
             outputBody.className = 'output-body streaming';
+            document.getElementById('tagRow').innerHTML = '';
 
             const titles = {
                 explain: '✦ Code Explanation', simplify: '✦ Simplified (ELI5)',
@@ -869,52 +1150,36 @@
             titleEl.className = 'output-title' + (selectedMode === 'format' ? ' green' : selectedMode === 'minify' ? ' purple' : '');
 
             try {
-                const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                const res = await fetch('/.netlify/functions/analyze', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
-                    body: JSON.stringify({
-                        model: 'llama-3.3-70b-versatile',
-                        messages: [{ role: 'user', content: getPrompt(code, currentLang, selectedMode) }],
-                        max_tokens: 4000,
-                        temperature: selectedMode === 'minify' ? 0.1 : selectedMode === 'format' ? 0.1 : 0.3
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, language: currentLang, mode: selectedMode })
                 });
-                if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || `API error ${res.status}`); }
                 const data = await res.json();
-                let result = data.choices[0].message.content;
+                if (!res.ok) throw new Error(data.error || 'Something went wrong');
 
-                // For format/minify, strip any markdown fences the model might add
-                if (selectedMode === 'format' || selectedMode === 'minify') {
-                    result = result.replace(/^```[\w]*\n?/gm, '').replace(/^```$/gm, '').trim();
-                }
-
+                const result = data.result;
                 outputBody.classList.remove('streaming');
-                if (modeIsCode(selectedMode)) {
-                    outputBody.className = 'output-body code-mode';
-                } else {
-                    outputBody.className = 'output-body';
-                }
+                outputBody.className = modeIsCode(selectedMode) ? 'output-body code-mode' : 'output-body';
                 outputBody.textContent = result;
 
-                // Stats chips
+                // Stats
                 const inLines = code.split('\n').length;
                 const outLines = result.split('\n').length;
                 const inSize = new Blob([code]).size;
                 const outSize = new Blob([result]).size;
-                const savings = inSize > 0 ? Math.round((1 - outSize / inSize) * 100) : 0;
+                const savings = inSize > 0 ? Math.max(0, Math.round((1 - outSize / inSize) * 100)) : 0;
 
                 let chips = `<div class="tag-chip">Mode: ${selectedMode}</div><div class="tag-chip">Lang: ${currentLang}</div>`;
                 if (selectedMode === 'minify') {
-                    chips += `<div class="tag-chip purple">Before: ${inSize} bytes</div><div class="tag-chip purple">After: ${outSize} bytes</div><div class="tag-chip purple">Saved: ${savings > 0 ? savings : 0}%</div>`;
+                    chips += `<div class="tag-chip purple">Before: ${inSize} bytes</div><div class="tag-chip purple">After: ${outSize} bytes</div><div class="tag-chip purple">Saved: ${savings}%</div>`;
                 } else if (selectedMode === 'format') {
                     chips += `<div class="tag-chip green">Lines: ${inLines} → ${outLines}</div>`;
                 } else {
-                    const words = result.trim().split(/\s+/).length;
-                    chips += `<div class="tag-chip">${words} words</div><div class="tag-chip">${outLines} lines</div>`;
+                    chips += `<div class="tag-chip">${result.trim().split(/\s+/).length} words</div><div class="tag-chip">${outLines} lines</div>`;
                 }
                 document.getElementById('tagRow').innerHTML = chips;
 
-                // Show download btn for format/minify/comments
                 const dlBtn = document.getElementById('dlBtn');
                 dlBtn.style.display = modeIsCode(selectedMode) ? 'inline-block' : 'none';
 
@@ -942,21 +1207,17 @@
 
         function downloadOutput() {
             const content = document.getElementById('outputBody').textContent;
-            const lang = document.getElementById('language').value;
-            const extMap = {
-                html: 'html', css: 'css', javascript: 'js', jsx: 'jsx', typescript: 'ts', tsx: 'tsx',
-                json: 'json', python: 'py', java: 'java', c: 'c', cpp: 'cpp', csharp: 'cs', php: 'php',
-                ruby: 'rb', go: 'go', rust: 'rs', swift: 'swift', kotlin: 'kt', dart: 'dart',
-                sql: 'sql', bash: 'sh', powershell: 'ps1', yaml: 'yaml', dockerfile: 'dockerfile',
-                xml: 'xml', markdown: 'md', r: 'r', matlab: 'm', auto: 'txt'
-            };
-            const ext = extMap[lang] || 'txt';
+            const extMap = { html: 'html', css: 'css', javascript: 'js', jsx: 'jsx', typescript: 'ts', tsx: 'tsx', json: 'json', python: 'py', java: 'java', c: 'c', cpp: 'cpp', csharp: 'cs', php: 'php', ruby: 'rb', go: 'go', rust: 'rs', swift: 'swift', kotlin: 'kt', dart: 'dart', sql: 'sql', bash: 'sh', powershell: 'ps1', yaml: 'yaml', dockerfile: 'dockerfile', xml: 'xml', markdown: 'md', r: 'r', matlab: 'm', auto: 'txt' };
+            const ext = extMap[currentLang] || 'txt';
             const suffix = selectedMode === 'minify' ? '.min' : selectedMode === 'format' ? '.formatted' : '.commented';
-            const filename = `code${suffix}.${ext}`;
             const blob = new Blob([content], { type: 'text/plain' });
             const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob); a.download = filename; a.click();
+            a.href = URL.createObjectURL(blob);
+            a.download = `code${suffix}.${ext}`;
+            a.click();
         }
+
+        function toggleFaq(btn) { btn.parentElement.classList.toggle('open'); }
     </script>
 </body>
 
