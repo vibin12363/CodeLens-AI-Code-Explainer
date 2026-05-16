@@ -1,42 +1,47 @@
-# CodeLens — AI Code Explainer
+# CodeLens — Free AI Code Explainer, Formatter & Minifier
 
-An AI-powered code analysis tool that explains, formats, minifies, and debugs code using the **Groq API** (LLaMA 3.3 70B). Supports 25+ programming languages.
+A production-ready AI-powered code analysis tool supporting 25+ programming
+languages with 7 modes, using Groq API (LLaMA 3.3 70B) via a secure
+Netlify serverless backend.
 
 ## 🚀 Live Demo
-[View Live App](https://codelens-ai-code-explainer.netlify.app/)
+[codelens-ai-code-explainer.netlify.app](https://codelens-ai-code-explainer.netlify.app)
 
 ## ✨ Features
-- **7 Analysis Modes:**
-  - 🔍 Explain — line-by-line code explanation
+- 7 Analysis Modes:
+  - 🔍 Explain — clear line-by-line breakdown
   - 🧒 ELI5 — beginner-friendly explanation
-  - 🐛 Find Bugs — detects errors and suggests fixes
-  - ⚡ Optimize — performance improvement suggestions
+  - 🐛 Find Bugs — detects errors & suggests fixes
+  - ⚡ Optimize — performance improvement tips
   - 📝 Add Comments — returns fully commented code
   - ✨ Format Code — prettifies with proper indentation
   - 🗜️ Minify Code — compresses code, shows % size saved
-- **25+ Languages:** HTML, CSS, JS, JSX, TSX, TypeScript, Python, Java, C, C++, C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, PowerShell, YAML, Dockerfile, XML, Markdown
+- 25+ Languages — HTML, CSS, JS, JSX, TS, Python, Java, C, C++,
+  C#, PHP, Ruby, Go, Rust, Swift, Kotlin, Dart, SQL, Bash, YAML & more
 - Download formatted/minified/commented code as file
-- Live line count, character count, and byte size display
-- Fully responsive — works on mobile, tablet, desktop
+- Live line count, character count & byte size display
+- Secure serverless backend — no setup or login needed for users
+- Full SEO — Schema.org, Open Graph, FAQ section, sitemap, robots.txt
+- Fully responsive — mobile, tablet, desktop
 
 ## 🛠️ Tech Stack
 - HTML5, CSS3, JavaScript (Vanilla)
-- Groq API (Free tier) — LLaMA 3.3 70B model
+- Groq API — LLaMA 3.3 70B model
+- Netlify Functions (serverless backend)
 
-## ⚙️ How to Use
-1. Clone or download this repo
-2. Get a free API key from [console.groq.com](https://console.groq.com)
-3. Open `index.html` in your browser
-4. Enter your Groq API key and click Save Key
-5. Paste any code → select language & mode → Analyze!
+## ⚙️ Self-Hosting / Development
+1. Clone this repo
+2. Add your Groq API key to Netlify → Environment Variables:
+3. Deploy via Netlify — done!
 
 ## 📸 Screenshot
-<img width="720" height="818" alt="codelens" src="https://github.com/user-attachments/assets/6d321421-3b22-48bf-b091-4d0bf60eed73" />
+<img width="780" height="881" alt="image" src="https://github.com/user-attachments/assets/e1c37e29-6beb-4b85-8ec0-2f6a4bb00b94" />
 
 
 ## 👨‍💻 Author
 **Vibin Iyyappan**
-[LinkedIn](https://www.linkedin.com/in/vibin-iyyappan-732017374) • [GitHub](https://github.com/vibin12363)
+[LinkedIn](https://www.linkedin.com/in/vibin-iyyappan-732017374) •
+[GitHub](https://github.com/vibin12363)
 
 ## 📄 License
 MIT License
